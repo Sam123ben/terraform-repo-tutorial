@@ -9,7 +9,15 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: sam123ben/terraform-pipeline:latest
+resources:
+  containers:
+  - container: terraform
+    image: sam123ben/terraform-pipeline:latest  # container image name
+    env: 
+      TF_VAR_subscription_id: $(TF_VAR_subscription_id)
+      TF_VAR_tenant_id: $(TF_VAR_tenant_id)
+      TF_VAR_client_secret: $(TF_VAR_client_secret)
+      TF_VAR_client_id: $(TF_VAR_client_id)
 
 steps:
 - script: cd ./azure/example1 && terraform init && terraform plan && terraform apply -auto-approve
