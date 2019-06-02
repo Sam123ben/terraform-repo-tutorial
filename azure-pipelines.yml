@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: terraformdocker/terraform:latest
+container: sam123ben/terraform-pipeline:latest
 
 steps:
 - script: cd ./azure/example1 && terraform init && terraform plan && terraform apply
