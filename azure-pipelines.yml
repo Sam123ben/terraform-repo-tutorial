@@ -12,7 +12,7 @@ pool:
 container: sam123ben/terraform-pipeline:latest
 
 steps:
-- script: cd ./azure/example1 && terraform init && terraform plan && terraform apply
+- script: cd ./azure/example1 && terraform init && terraform plan && terraform apply -auto-approve
   displayName: 'Run the Azure resources'
 
 # - script: |
