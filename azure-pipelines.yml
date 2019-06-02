@@ -21,7 +21,9 @@ resources:
 
 steps:
 
-- script: echo $TF_VAR_subscription_id
+- bash: printenv
+
+- script: echo $(TF_VAR_subscription_id)
   displayName: 'Run the Azure resources'
 
 # - script: cd ./azure/example1 && terraform init && terraform plan && terraform apply -auto-approve
