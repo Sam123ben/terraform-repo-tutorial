@@ -12,7 +12,7 @@ pool:
 container: terraformdocker/terraform
 
 steps:
-- script: cd ./azure/example1 && 
+- script: cd ./azure/example1 && terraform init && terraform plan && terraform apply
   displayName: 'Run the Azure resources'
 
 # - script: |
