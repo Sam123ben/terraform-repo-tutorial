@@ -20,8 +20,12 @@ resources:
       TF_VAR_client_id: $(TF_VAR_client_id)
 
 steps:
-- script: cd ./azure/example1 && terraform init && terraform plan && terraform apply -auto-approve
+
+- script: echo $TF_VAR_subscription_id
   displayName: 'Run the Azure resources'
+
+# - script: cd ./azure/example1 && terraform init && terraform plan && terraform apply -auto-approve
+#   displayName: 'Run the Azure resources'
 
 # - script: |
 #     echo Add other tasks to build, test, and deploy your project.
