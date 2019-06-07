@@ -34,15 +34,15 @@ resource "azurerm_resource_group" "web_server_sam" {
 }
 
 resource "azurerm_virtual_network" "web_server_sam_vm" {
-  name                = "${var.prefix}-network"
+  name                = "tutorial-network"
   resource_group_name = "${azurerm_resource_group.web_server_sam.name}"
   location            = "${azurerm_resource_group.web_server_sam.location}"
   address_space       = ["10.0.0.0/16"]
 }
 
-resource "azurerm_subnet" "web_server_sam_vm" {
+resource "azurerm_subnet" "web_server_sam_vm_subnet" {
   name                 = "internal"
   virtual_network_name = "${azurerm_virtual_network.web_server_sam_vm.name}"
-  resource_group_name  = "${azurerm_resource_group.web_server_sam_vm.name}"
+  resource_group_name = "${azurerm_resource_group.web_server_sam.name}"
   address_prefix       = "10.0.1.0/24"
 }
